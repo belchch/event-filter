@@ -1,19 +1,10 @@
 package ru.acvm.eventfilter
 
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.springframework.boot.ApplicationArguments
-import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.context.annotation.Bean
-import org.springframework.stereotype.Component
 import ru.acvm.eventfilter.app.EventFilterService
-import ru.acvm.eventfilter.app.EventParser
-import ru.acvm.eventfilter.app.ResourceReader
 import java.io.File
-import java.lang.IllegalArgumentException
 import java.lang.Long.parseLong
 
 @SpringBootApplication

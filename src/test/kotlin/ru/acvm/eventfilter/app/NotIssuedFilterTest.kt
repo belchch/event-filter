@@ -23,10 +23,11 @@ internal class NotIssuedFilterTest {
 
     private fun event(id: String, cardStatus: String) = Event(
             data = EventData(
-                    timeKey = 1,
-                    customerId = id,
                     cardParams = CardParams(
-                            cardStatus = cardStatus
+                            cardStatus = cardStatus,
+                            cardId = id,
+                            deliveredToOffice = "01.01.2020 10:00",
+                            deliveredToClient = null
                     )),
             content = ""
     )

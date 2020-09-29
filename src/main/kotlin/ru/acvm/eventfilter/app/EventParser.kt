@@ -18,15 +18,21 @@ data class Event (
 )
 
 data class EventData (
-        @JsonProperty("timeKey")
-        val timeKey: Long,
         @JsonProperty("cardParams")
-        val cardParams: CardParams,
-        @JsonProperty("customerId")
-        val customerId: String
+        val cardParams: CardParams
 )
 
 data class CardParams (
         @JsonProperty("cardStatus")
-        val cardStatus: String
-)
+        val cardStatus: String,
+        @JsonProperty("cardId")
+        val cardId: String,
+        @JsonProperty("delivToOffice")
+        val deliveredToOffice: String?,
+        @JsonProperty("delivToClient")
+        val deliveredToClient: String?
+
+) {
+    val delivered: String?
+        get() = deliveredToOffice ?: deliveredToClient
+}

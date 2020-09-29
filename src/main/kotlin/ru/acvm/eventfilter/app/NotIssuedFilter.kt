@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 class NotIssuedFilter {
     fun apply(events: List<Event>): List<Event> {
         return events
-                .groupingBy { it.data.customerId }
+                .groupingBy { it.data.cardParams.cardId }
                 .fold({_,_ -> CustomerEvents()}, accumulate)
                 .values
                 .filter { it.issued == null && it.delivered != null }

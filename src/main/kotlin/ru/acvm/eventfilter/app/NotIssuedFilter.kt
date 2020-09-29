@@ -7,7 +7,7 @@ class NotIssuedFilter {
     fun apply(events: List<Event>): List<Event> {
         return events
                 .groupingBy { it.data.customerId }
-                .fold({_,_ -> CustomerEvents()}, accumulate).also { println(it) }
+                .fold({_,_ -> CustomerEvents()}, accumulate)
                 .values
                 .filter { it.issued == null && it.delivered != null }
                 .map { it.delivered!! }

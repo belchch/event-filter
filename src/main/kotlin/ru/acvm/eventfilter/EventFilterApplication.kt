@@ -11,7 +11,7 @@ import java.lang.Long.parseLong
 class EventFilterApplication(private val eventFilterService: EventFilterService) : CommandLineRunner {
     override fun run(vararg args: String?) {
         if (args.isEmpty()){
-            throw IllegalArgumentException("Arguments: inputFile, outputFile, fromTimeKey, [toTimeKey]")
+            println("Arguments: inputFile, outputFile, fromTimeKey, [toTimeKey]")
         }
 
         val input = args[0]!!

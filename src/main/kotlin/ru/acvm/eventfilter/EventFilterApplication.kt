@@ -10,7 +10,7 @@ import java.lang.Long.parseLong
 @SpringBootApplication
 class EventFilterApplication(private val eventFilterService: EventFilterService) : CommandLineRunner {
     override fun run(vararg args: String?) {
-        if (args.isEmpty()){
+        if (args.size < 3){
             println("Arguments: inputFile, outputFile, fromTimeKey, [toTimeKey]")
         }
 

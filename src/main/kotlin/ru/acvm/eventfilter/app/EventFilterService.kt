@@ -10,15 +10,15 @@ class EventFilterService(
 ) {
 
     fun filter(input: File, output: File, from: Long, to: Long?) {
-        val eventRange = input.readLines()
+        var events = input.readLines()
                 .map { parser.parse(it) }
+
+        events = notIssuedFilter.apply(events)
+                .filter { it.data.timeKey <= (to ?: Long.MAX_VALUE) }
                 .filter { it.data.timeKey >= from }
 
-        val notIssued = notIssuedFilter.apply(eventRange)
-                .filter { it.data.timeKey <= (to ?: Long.MAX_VALUE) }
-
         output.printWriter().use { printWriter ->
-            notIssued.forEach { printWriter.println(it.content) }
+            events.forEach { printWriter.println(it.content) }
         }
     }
 }
